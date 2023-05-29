@@ -17,6 +17,10 @@ useHead({
   <div>
     <TopBanner />
     <HeaderComp />
+    <main>
+      <BannerHero />
+      <EntreprisesList />
+    </main>
   </div>
 </template>
 
