@@ -16,6 +16,7 @@ useHead({
 <template>
   <div>
     <TopBanner />
+    <HeaderComp />
   </div>
 </template>
 
