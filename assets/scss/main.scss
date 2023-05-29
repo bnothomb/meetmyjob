@@ -1,0 +1,16 @@
+$theme-colors: (
+  'primary': #77e9cb,
+  'secondary': #833bec,
+  'success': #1ce1ac,
+  'info': #ff7d50,
+  'warning': #ffbe0b,
+  'danger': #ff007f,
+  'light': #c0ccda,
+  'dark': #001738,
+);
+
+@import 'node_modules/bootstrap/scss/bootstrap.scss';
+
+body {
+  font-family: 'Nunito', Helvetica, Arial, sans-serif;
+}
