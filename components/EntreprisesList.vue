@@ -89,7 +89,7 @@ const sizeIcon = '\f0c0'
         </div>
       </div>
       <div
-        class="w-100 d-flex d-lg-none align-items-center justify-content-center mt-3"
+        class="w-100 d-flex d-lg-none align-items-center justify-content-center my-3"
       >
         <a href="/entreprises-impact" class="btn btn-primary mx-auto mt-3 py-2"
           >Voir plus d'entreprises engagées<i

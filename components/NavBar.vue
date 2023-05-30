@@ -1,19 +1,8 @@
-<!-- <script setup lang="ts">
-
-</script> -->
-
 <template>
-  <header class="headerComp light">
-    <div class="container-fluid headerComp my-1">
-      <div class="logo">
-        <a
-          href="/"
-          aria-current="page"
-          class="nuxt-link-exact-active nuxt-link-active"
-        >
-          <!-- <svg class="icon">
-            <use xlink:href="@/assets/img/logo.svg"></use>
-          </svg> -->
+  <nav class="navbar navbar-expand-lg sticky-top headerComp">
+    <div class="container-fluid font-weight-bold">
+      <a class="navbar-brand" href="#" aria-current="page">
+        <div class="logo">
           <svg
             id="Calque_1"
             version="1.1"
@@ -91,27 +80,118 @@
               data-v-a6af319a=""
             ></path>
           </svg>
-        </a>
+        </div>
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+        Menu
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Trouver un job à impact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Trouver une entreprise engagée</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Blog</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+        </ul>
+        <div class="blockButton d-flex">
+          <button
+            type="button"
+            class="btn btn-outline-secondary btn-mmj py-1 d-flex align-items-center justify-content-center"
+          >
+            <client-only>
+              <!-- TODO-ISSUE
+                Needed due to a duplication bug in font-awasome 
+                https://github.com/FortAwesome/vue-fontawesome/issues/447 
+              -->
+              <font-awesome-icon icon="fa-solid fa-search" class="pe-1" />
+            </client-only>
+            <span class="text-center">Rechercher</span>
+          </button>
+          <button class="btn btn-primary btn-mmj btn-mmj--primary ms-3 py-1">
+            Se connecter
+          </button>
+        </div>
       </div>
-      <button class="search">Search</button>
-      <button class="menu">Menu</button>
     </div>
-  </header>
+  </nav>
 </template>
 
-<style>
+<style scoped lang="scss">
+@import '~/assets/scss/main.scss';
+
 .headerComp {
-  display: flex;
-  justify-content: space-between;
-}
-.logo .st1 {
-  fill: #77e9cb;
-}
-.logo .st0 {
-  font-family: 'Nunito', Helvetica, Arial, sans-serif;
+  background-color: white;
+
+  .navbar-nav {
+    a::before {
+      background-color: $primary;
+      bottom: -3px;
+      content: '';
+      display: block;
+      height: 3px;
+      left: 50%;
+      position: absolute;
+      transform: translate(-50%) scaleX(0);
+      transition: all 0.1s linear 0s;
+      width: 100%;
+    }
+  }
+  .nav-link {
+    color: $secondary;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0 12.5px;
+    position: relative;
+    -webkit-text-decoration: none;
+    text-decoration: none;
+    &:hover {
+      position: relative;
+
+      &::after {
+        background-color: $primary;
+        bottom: -3px;
+        content: '';
+        display: block;
+        height: 3px;
+        left: 50%;
+        position: absolute;
+        transform: translate(-50%) scaleX(0);
+        transition: all 0.1s linear 0s;
+        width: 100%;
+      }
+
+      &::after {
+        transform: translateX(-50%) scaleX(1);
+      }
+    }
+  }
 }
 
 .logo {
   width: 120px;
+
+  .st1 {
+    fill: #77e9cb;
+  }
+  .st0 {
+    font-family: 'Nunito', Helvetica, Arial, sans-serif;
+    font-weight: bold;
+  }
 }
 </style>

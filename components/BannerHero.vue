@@ -57,7 +57,7 @@ onMounted(() => {
             ></span>
           </h2>
           <div
-            class="d-flex flex-lg-row flex-column flex-wrap groupButton my-5 mx-3"
+            class="d-grid d-flex flex-lg-row flex-column flex-wrap groupButton my-5 mx-3"
           >
             <a href="/offres-emploi" class="btn btnHero btn-primary fw-bold"
               >Trouve ton emploi à impact !</a
@@ -89,20 +89,12 @@ onMounted(() => {
   </div>
 </template>
 
-<style>
-.btn-mmj-white {
-  background-color: white;
-}
-
-.text-mmj {
-  color: white;
-  text-emphasis: bold;
-}
-
+<style scoped lang="scss">
+@import '~/assets/scss/main.scss';
 .bannerHero {
   align-items: center;
   -webkit-align-items: center;
-  background-color: #343f52;
+  background-color: $secondary;
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: cover;
@@ -121,70 +113,67 @@ onMounted(() => {
   width: 100%;
   padding: 50px 0;
   height: auto;
-}
+  h2 {
+    font-size: 39px !important;
+    text-align: center;
 
-.bannerHero h2 {
-  font-size: 39px !important;
-  text-align: center;
+    span {
+      color: #343f52;
+      display: inline-block;
+      font-size: inherit;
+      font-weight: 900;
+      position: relative;
+    }
+  }
+  .content {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    position: relative;
+    width: 1034px;
+    z-index: 4;
+
+    @include media-breakpoint-down(xl) {
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+  }
+  .underlined {
+    margin-left: 10px;
+    min-width: 180px;
+    position: relative;
+    z-index: 0;
+
+    &::before {
+      background-color: #77e9cb;
+      -webkit-clip-path: polygon(0 10%, 100% 0, 98% 100%, 6px 90%);
+      clip-path: polygon(0 10%, 100% 0, 98% 100%, 6px 90%);
+      content: '';
+      display: block;
+      height: 110%;
+      left: -10px;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 110%;
+      z-index: -1;
+    }
+    @include media-breakpoint-down(md) {
+      right: 0;
+      left: 0;
+      width: 100%;
+    }
+  }
 }
-.bannerHero h2 span {
-  color: #343f52;
-  display: inline-block;
-  font-size: inherit;
-  font-weight: 900;
-  position: relative;
-}
-.bannerHero h2 > span {
+/* 
+.bannerHero h2 .bannerHero h2 > span {
   padding-left: 12px;
   padding-right: 12px;
   text-align: left;
 }
 
-.bannerHero .content {
-  padding-left: 1rem;
-  padding-right: 1rem;
-  position: relative;
-  width: 1034px;
-  z-index: 4;
-}
-@media (max-width: 1149.98px) .bannerHero .content {
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 1rem;
-  padding-right: 1rem;
-}
-
-.underlined {
-  margin-left: 10px;
-  min-width: 180px;
-  position: relative;
-  z-index: 0;
-}
-.fw-800,
-.fw-bold {
-  font-weight: 800 !important;
-}
-.underlined::before {
-  background-color: #77e9cb;
-  -webkit-clip-path: polygon(0 10%, 100% 0, 98% 100%, 6px 90%);
-  clip-path: polygon(0 10%, 100% 0, 98% 100%, 6px 90%);
-  content: '';
-  display: block;
-  height: 110%;
-  left: -10px;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 110%;
-  z-index: -1;
-}
-
-@media (max-width: 768.98px) .bannerHero .backgroundHero {
-  right: 0;
-  left: 0;
-  width: 100%;
-}
-/* .backgroundHero::before {
+.backgroundHero::before {
   background-color: #343f52;
   content: '';
   height: 100%;
@@ -197,7 +186,7 @@ onMounted(() => {
   border-radius: 0;
   overflow: hidden;
   z-index: 1;
-} */
+} 
 .bannerHero .backgroundHero img {
   border-radius: 0;
 }
@@ -212,7 +201,7 @@ onMounted(() => {
   height: 100%;
   width: 100%;
 }
-/* .carousel-inner {
+.carousel-inner {
   height: 100%;
   width: 100%;
 }

@@ -1,6 +1,10 @@
+$primary: #77e9cb;
+$secondary: #343f52;
+
 $theme-colors: (
-  'primary': #77e9cb,
-  'secondary': #833bec,
+  'primary': $primary,
+  'secondary': $secondary,
+  'tertiary': #ffffff,
   'success': #1ce1ac,
   'info': #ff7d50,
   'warning': #ffbe0b,
@@ -9,8 +13,38 @@ $theme-colors: (
   'dark': #001738,
 );
 
+$btn-hover-color: #23d7a8;
+
 @import 'node_modules/bootstrap/scss/bootstrap.scss';
 
 body {
   font-family: 'Nunito', Helvetica, Arial, sans-serif;
 }
+
+/* Global Styles */
+
+.btn-mmj {
+  font-size: 16px;
+  padding: 6px 24px;
+  border-radius: 50px;
+
+  &--primary {
+    font-weight: bold;
+
+    &:hover {
+      background-color: $btn-hover-color;
+    }
+  }
+}
+
+.text-mmj {
+  color: white;
+  font-weight: bold;
+}
+/*
+a {
+  background-color: transparent;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+*/

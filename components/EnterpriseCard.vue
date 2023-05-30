@@ -40,15 +40,36 @@ const jobText = computed(() => {
         <div class="card-text">
           <p class="tagline">{{ tagline }}</p>
           <span class="badge bg-primary color-grey">
-            <font-awesome-icon icon="fa-solid fa-tag" class="pe-1" />
+            <client-only>
+              <!-- TODO-ISSUE
+                Needed due to a duplication bug in font-awasome 
+                https://github.com/FortAwesome/vue-fontawesome/issues/447 
+              -->
+              <font-awesome-icon icon="fa-solid fa-tag" class="pe-1" />
+            </client-only>
             <span>{{ sector }}</span>
           </span>
           <span class="badge bg-primary color-grey">
-            <font-awesome-icon icon="fa-solid fa-map-marker-alt" class="pe-1" />
+            <client-only>
+              <!-- TODO-ISSUE
+                Needed due to a duplication bug in font-awasome 
+                https://github.com/FortAwesome/vue-fontawesome/issues/447 
+              -->
+              <font-awesome-icon
+                icon="fa-solid fa-map-marker-alt"
+                class="pe-1"
+              />
+            </client-only>
             <span>{{ localisation }}</span>
           </span>
           <span class="badge bg-primary color-grey">
-            <font-awesome-icon icon="fa-solid fa-users" class="pe-1" />
+            <client-only>
+              <!-- TODO-ISSUE
+                Needed due to a duplication bug in font-awasome 
+                https://github.com/FortAwesome/vue-fontawesome/issues/447 
+              -->
+              <font-awesome-icon icon="fa-solid fa-users" class="pe-1" />
+            </client-only>
             <span>{{ size }}</span>
           </span>
           <p>{{ text }}</p>
@@ -110,8 +131,7 @@ const jobText = computed(() => {
   width: calc(100% + 8px);
   z-index: -1;
 }
-
-.logo {
+.card .logo {
   border-radius: 100%;
   box-shadow: 0 0 10px 0 rgba(52, 63, 82, 0.8);
   height: 100px;
@@ -121,7 +141,7 @@ const jobText = computed(() => {
   width: 100px;
   z-index: 1;
 }
-.logo img {
+.card .logo img {
   background-color: #fff;
   border-radius: 100%;
   height: 100%;
