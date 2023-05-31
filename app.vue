@@ -7,7 +7,7 @@ useHead({
     {
       name: 'description',
       content:
-        'Trouve ton emploi au sein d’entreprises qui se mobilisent pour notre planète et société. Environnement, Social, Secteur Bio, Économie circulaire, ...',
+        "Trouve ton emploi au sein d'entreprises qui se mobilisent pour notre planète et société. Environnement, Social, Secteur Bio, Économie circulaire, ...",
     },
   ],
 })

@@ -138,20 +138,6 @@
 .headerComp {
   background-color: white;
 
-  .navbar-nav {
-    a::before {
-      background-color: $primary;
-      bottom: -3px;
-      content: '';
-      display: block;
-      height: 3px;
-      left: 50%;
-      position: absolute;
-      transform: translate(-50%) scaleX(0);
-      transition: all 0.1s linear 0s;
-      width: 100%;
-    }
-  }
   .nav-link {
     color: $secondary;
     font-size: 16px;

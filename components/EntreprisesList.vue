@@ -49,7 +49,7 @@ const entreprises = ref([
       <header
         class="col-12 col-lg-8 generalHeader align-items-center order-0 text-center text-lg-start"
       >
-        <row>
+        <div class="row">
           <div class="col">
             <h2>
               <span>Les&nbsp;</span><span>dernières&nbsp;</span
@@ -63,7 +63,7 @@ const entreprises = ref([
               impact environnemental et/ou sociétal
             </p>
           </div>
-        </row>
+        </div>
       </header>
       <div class="col-12 carousel m-3 content px-0 py-2 order-2">
         <EnterpriseCard
@@ -127,6 +127,10 @@ const entreprises = ref([
 .carousel {
   display: flex;
   overflow: scroll;
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
   .carousel-enterprise {
     min-width: 30%;
     @include media-breakpoint-down(xl) {
