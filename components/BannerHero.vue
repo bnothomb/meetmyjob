@@ -45,43 +45,62 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="bannerHero w-100 order-1 container-fluid d-flex">
-    <div class="container-fluid px-3">
-      <div class="row">
-        <div class="offset-xl-1 content">
-          <h2 class="text-mmj">
-            Deviens acteur du changement
-            <span class="fw-bold underlined"
-              ><span class="writter">{{ typeValue }}</span
-              ><i class="fas fa-leaf"></i
-            ></span>
-          </h2>
-          <div
-            class="d-grid d-flex flex-lg-row flex-column flex-wrap groupButton my-5 mx-3"
-          >
-            <a href="/offres-emploi" class="btn btnHero btn-primary fw-bold"
-              >Trouve ton emploi à impact !</a
-            ><a
-              href="/entreprises-impact"
-              class="btn btnHero btn-mmj-white fw-bold mt-2"
-              >Trouve ton entreprise engagée</a
-            >
+  <div class="bannerHero w-100 container-fluid">
+    <div class="row px-3">
+      <div class="col">
+        <div
+          class="row justify-content-center justify-content-xl-start align-items-center my-5 mx-3"
+        >
+          <div class="col-8 col-lg-10 col-xl-8">
+            <h2 class="text-mmj">
+              Deviens acteur du changement
+              <span class="underlined">
+                <span class="writter">{{ typeValue }} </span>
+                <client-only>
+                  <!-- TODO-ISSUE
+                Needed due to a duplication bug in font-awasome 
+                https://github.com/FortAwesome/vue-fontawesome/issues/447 
+              -->
+                  <font-awesome-icon
+                    icon="fa-solid fa-leaf"
+                    class="bannerHero-leaf d-none d-xl-block"
+                  />
+                </client-only>
+              </span>
+            </h2>
           </div>
         </div>
         <div
-          class="backgroundHero carousel slide carousel-fade"
-          data-bs-ride="carousel"
+          class="row justify-content-center justify-content-xl-start align-items-center my-5 mx-3"
         >
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <img src="img/1.jpg" class="d-block w-100 img-fluid" alt="..." />
-            </div>
-            <div class="carousel-item">
-              <img src="img/2.jpg" class="d-block w-100 img-fluid" alt="..." />
-            </div>
-            <div class="carousel-item">
-              <img src="img/3.jpg" class="d-block w-100 img-fluid" alt="..." />
-            </div>
+          <a
+            href="/offres-emploi"
+            class="col-8 col-xl-3 btn btnHero btn-primary m-2"
+            >Trouve ton emploi à impact !
+          </a>
+          <a
+            href="/entreprises-impact"
+            class="col-8 col-xl-3 btn btn-primary btnHero btnHero--white m-2"
+            >Trouve ton entreprise engagée
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="row backgroundHero d-none">
+      <!--position-absolute top-0 end-0 -->
+      <div
+        class="col-xl-6 carousel slide carousel-fade"
+        data-bs-ride="carousel"
+      >
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="img/1.jpg" class="d-block w-100 img-fluid" alt="..." />
+          </div>
+          <div class="carousel-item">
+            <img src="img/2.jpg" class="d-block w-100 img-fluid" alt="..." />
+          </div>
+          <div class="carousel-item">
+            <img src="img/3.jpg" class="d-block w-100 img-fluid" alt="..." />
           </div>
         </div>
       </div>
@@ -92,53 +111,64 @@ onMounted(() => {
 <style scoped lang="scss">
 @import '~/assets/scss/main.scss';
 .bannerHero {
-  align-items: center;
-  -webkit-align-items: center;
   background-color: $secondary;
-  background-position: 50%;
-  background-repeat: no-repeat;
-  background-size: cover;
-  display: flex;
-  display: -webkit-flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  -webkit-flex-wrap: wrap;
-  height: 90vh;
-  justify-content: flex-start;
-  -webkit-justify-content: flex-start;
-  overflow: hidden;
-  padding-left: 64px;
-  padding-right: 64px;
-  position: relative;
-  width: 100%;
-  padding: 50px 0;
-  height: auto;
+
   h2 {
-    font-size: 39px !important;
-    text-align: center;
+    font-size: 70px;
 
     span {
-      color: #343f52;
+      color: $secondary;
       display: inline-block;
       font-size: inherit;
       font-weight: 900;
       position: relative;
     }
-  }
-  .content {
-    padding-left: 1rem;
-    padding-right: 1rem;
-    position: relative;
-    width: 1034px;
-    z-index: 4;
 
     @include media-breakpoint-down(xl) {
-      margin-left: auto;
-      margin-right: auto;
-      padding-left: 1rem;
-      padding-right: 1rem;
+      text-align: center;
+    }
+    @media screen and (max-width: 1039.98px) {
+      font-size: 66px;
+      max-width: 848px;
+    }
+    @media screen and (max-width: 945.98px) {
+      font-size: 61px;
+    }
+    @media screen and (max-width: 898.98px) {
+      font-size: 57px;
+    }
+    @media screen and (max-width: 788.98px) {
+      font-size: 50px;
     }
   }
+
+  .btnHero {
+    font-weight: bold;
+    border: none;
+    outline: none;
+
+    &:hover {
+      background-color: $btn-hover-color;
+    }
+
+    &--white {
+      background-color: white;
+
+      &:hover {
+        background-color: $primary;
+      }
+    }
+  }
+
+  &-leaf {
+    color: #77e9cb;
+    font-size: 1em;
+    position: absolute;
+    right: -90px;
+    top: -80px;
+    transform: scaleX(-1) rotate(-120deg);
+  }
+
   .underlined {
     margin-left: 10px;
     min-width: 180px;
@@ -166,49 +196,9 @@ onMounted(() => {
     }
   }
 }
-/* 
-.bannerHero h2 .bannerHero h2 > span {
-  padding-left: 12px;
-  padding-right: 12px;
-  text-align: left;
+/*
+.backgroundHero {
+  z-index: 0;
 }
-
-.backgroundHero::before {
-  background-color: #343f52;
-  content: '';
-  height: 100%;
-  right: 0;
-  left: 0;
-  top: 0;
-  opacity: 0.9;
-  position: absolute;
-  width: 100%;
-  border-radius: 0;
-  overflow: hidden;
-  z-index: 1;
-} 
-.bannerHero .backgroundHero img {
-  border-radius: 0;
-}
-
-.bannerHero .backgroundHero {
-  z-index: -1;
-  position: absolute;
-  opacity: 0.5;
-  overflow: hidden;
-  left: 0;
-  right: 0;
-  height: 100%;
-  width: 100%;
-}
-.carousel-inner {
-  height: 100%;
-  width: 100%;
-}
-.carousel-item .d-block {
-  height: 100%;
-  width: 100%;
-  overflow: hidden;
-  position: center;
-} */
+*/
 </style>
