@@ -16,95 +16,94 @@ const entreprises = ref([
   },
   {
     link: '#',
-    img: 'https://cdn.meet-my-job.com/4f632c51-1a16-4fb0-a586-8d3d9a7ecd6b/1684920853240_5f5cfa4d-5033-4c34-82f7-c8a976a9a991.jpg/368:185:webp:70',
-    logo: 'https://cdn.meet-my-job.com/4f632c51-1a16-4fb0-a586-8d3d9a7ecd6b/1684922463744_logo.jpg/100:100:webp:80',
+    img: 'https://cdn.meet-my-job.com/471e9c4d-de08-40ec-a4c2-b389d248d90d/1684159808479_image-7bis.jpg/368:185:jpg:70',
+    logo: 'https://cdn.meet-my-job.com/471e9c4d-de08-40ec-a4c2-b389d248d90d/1684157156970_logo.jpg/100:100:webp:80',
     jobNumber: 2,
-    name: 'Ethiquable',
-    tagline: 'Entreprise coopérative, citoyenne et solidaire',
+    name: 'Pro Velo',
+    tagline: 'Donner le goût du vélo en le rendant accessible à tous.tes',
     sector:
-      'Alimentation saine, Associations & ONG, Consommation responsable, Ecologie & environnement',
-    localisation: 'Province de Namur',
-    size: 'Entre 5 et 50 employés',
-    text: 'd',
+      'Associations & ONG, Culture / Divertissement / Loisirs, Ecologie & environnement, Mobilité',
+    localisation: 'Bruxelles',
+    size: 'Entre 50 et 150 employés',
+    text: 'Un moyen de déplacement écologique, économique et bénéfique à la santé ? Le vélo, évidemment ! Comme chez Pro Velo, nous pensons que la mobilité douce est la clé pour un avenir plu...',
   },
   {
     link: '#',
-    img: 'https://cdn.meet-my-job.com/4f632c51-1a16-4fb0-a586-8d3d9a7ecd6b/1684920853240_5f5cfa4d-5033-4c34-82f7-c8a976a9a991.jpg/368:185:webp:70',
-    logo: 'https://cdn.meet-my-job.com/4f632c51-1a16-4fb0-a586-8d3d9a7ecd6b/1684922463744_logo.jpg/100:100:webp:80',
+    img: 'https://cdn.meet-my-job.com/c14671d8-c8fb-453a-92b3-0c426e147c3e/1678115782128_the-barn-image-entreprise.jpg/368:185:jpg:70',
+    logo: 'https://cdn.meet-my-job.com/c14671d8-c8fb-453a-92b3-0c426e147c3e/1678115793366_logo-thebarn-najat-el-messaoudi.png/100:100:webp:80',
     jobNumber: 1,
-    name: 'Ethiquable',
-    tagline: 'Entreprise coopérative, citoyenne et solidaire',
+    name: 'The Barn',
+    tagline: "L'alimentation durable accessible",
     sector:
       'Alimentation saine, Associations & ONG, Consommation responsable, Ecologie & environnement',
-    localisation: 'Province de Namur',
-    size: 'Entre 5 et 50 employés',
-    text: 'ledd',
+    localisation: 'Bruxelles',
+    size: 'Entre 50 et 150 employés',
+    text: "The Barn c'est deux jeunes entrepreneurs, entourés d'une équipe de 140 passionnés, qui, ensemble, relèvent le défi de proposer des produits abordables, 100% bio provenant directeme...",
   },
 ])
-
-const sectorIcon = '\f02b'
-const mapIcon = '\f3c5'
-const sizeIcon = '\f0c0'
 </script>
 
 <template>
   <div class="container">
-    <div class="row mt-5">
+    <div class="row my-5 justify-content-center justify-content-lg-around gx-5">
       <header
-        class="col-12 generalHeader d-flex flex-row flex-wrap align-items-center"
+        class="col-12 col-lg-8 generalHeader align-items-center order-0 text-center text-lg-start"
       >
-        <div class="col text-center text-lg-left">
-          <h2>
-            <span>Les&nbsp;</span><span>dernières&nbsp;</span
-            ><span>entreprises&nbsp;</span><span>engagées&nbsp;</span
-            ><span>qui&nbsp;</span><span>recrutent</span>
-          </h2>
-        </div>
-        <div class="col-12 pt-lg-3 pt-3 d-block d-lg-none">
-          <p class="text-center mb-0 pb-0 small mx-4">
-            Leurs particularités ? Ce ne sont que des acteurs qui ont un impact
-            environnemental et/ou sociétal
-          </p>
-        </div>
+        <row>
+          <div class="col">
+            <h2>
+              <span>Les&nbsp;</span><span>dernières&nbsp;</span
+              ><span>entreprises&nbsp;</span><span>engagées&nbsp;</span
+              ><span>qui&nbsp;</span><span>recrutent</span>
+            </h2>
+          </div>
+          <div class="col-12 d-block d-lg-none">
+            <p class="mb-0 pb-0 small mx-4">
+              Leurs particularités ? Ce ne sont que des acteurs qui ont un
+              impact environnemental et/ou sociétal
+            </p>
+          </div>
+        </row>
       </header>
-      <div
-        class="snapScrollWindow col-12 d-flex flex-row flex-wrap align-items-lg-center align-items-start justify-content-stretch content px-0 mt-2"
-      >
-        <div class="carousel mx-2">
-          <EnterpriseCard
-            v-for="enterprise in entreprises"
-            class="mx-2"
-            :likes="enterprise.likes"
-            :link="enterprise.link"
-            :img="enterprise.img"
-            :logo="enterprise.logo"
-            :jobNumber="enterprise.jobNumber"
-            :name="enterprise.name"
-            :tagline="enterprise.tagline"
-            :sector="enterprise.sector"
-            :localisation="enterprise.localisation"
-            :size="enterprise.size"
-            :text="enterprise.text"
-          />
-        </div>
+      <div class="col-12 carousel m-3 content px-0 py-2 order-2">
+        <EnterpriseCard
+          v-for="enterprise in entreprises"
+          class="mx-3 carousel-enterprise"
+          :likes="enterprise.likes"
+          :link="enterprise.link"
+          :img="enterprise.img"
+          :logo="enterprise.logo"
+          :jobNumber="enterprise.jobNumber"
+          :name="enterprise.name"
+          :tagline="enterprise.tagline"
+          :sector="enterprise.sector"
+          :localisation="enterprise.localisation"
+          :size="enterprise.size"
+          :text="enterprise.text"
+        />
       </div>
-      <div
-        class="w-100 d-flex d-lg-none align-items-center justify-content-center my-3"
+      <button
+        href="#"
+        class="col-10 col-lg-4 btn btn-primary btn-mmj btn-mmj--primary order-3 order-lg-1 align-items-center justify-content-center"
       >
-        <a href="/entreprises-impact" class="btn btn-primary mx-auto mt-3 py-2"
-          >Voir plus d'entreprises engagées<i
-            class="ml-3 fas fa-chevron-right"
-          ></i
-        ></a>
-      </div>
+        Voir plus d'entreprises engagées
+        <client-only>
+          <!-- TODO-ISSUE
+                Needed due to a duplication bug in font-awasome 
+                https://github.com/FortAwesome/vue-fontawesome/issues/447 
+              -->
+          <font-awesome-icon icon="fa-solid fa-chevron-right" class="ms-1" />
+        </client-only>
+      </button>
     </div>
   </div>
 </template>
 
-<style>
+<style scoped lang="scss">
+@import '~/assets/scss/main.scss';
 .generalHeader h2 span::before,
 .generalHeader p.h2 span::before {
-  background-color: #77e9cb;
+  background-color: $primary;
   border-radius: 50px;
   content: '';
   display: block;
@@ -115,35 +114,7 @@ const sizeIcon = '\f0c0'
   width: calc(100% + 15px);
   z-index: -1;
 }
-.generalHeader h2,
-.generalHeader p.h2 {
-  font-size: 1.2rem !important;
-}
-.generalHeader h2,
-.generalHeader p.h2 {
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 320px;
-}
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-weight: 500;
-  line-height: 1.2;
-  margin-bottom: 0.5rem;
-  margin-top: 0;
-}
-.col {
-  flex-basis: 0;
-  flex-grow: 1;
-  max-width: 100%;
-  padding-left: 15px;
-  padding-right: 15px;
-  position: relative;
-  width: 100%;
-}
+
 .generalHeader h2 span,
 .generalHeader p.h2 span {
   display: inline-block;
@@ -153,20 +124,20 @@ h6 {
   z-index: 1;
 }
 
-@media (max-width: 365.98px) .selectedEntreprises header p {
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 220px;
-}
-
 .carousel {
   display: flex;
   overflow: scroll;
-  /* scroll-snap-type: x mandatory; */
+  .carousel-enterprise {
+    min-width: 30%;
+    @include media-breakpoint-down(xl) {
+      min-width: 50%;
+    }
+    @include media-breakpoint-down(lg) {
+      min-width: 60%;
+    }
+    @include media-breakpoint-down(md) {
+      min-width: 80%;
+    }
+  }
 }
-
-/* .carousel > * {
-  flex: 1 0 100%;
-  scroll-snap-align: start;
-} */
 </style>

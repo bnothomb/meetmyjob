@@ -26,20 +26,20 @@ const jobText = computed(() => {
 </script>
 
 <template>
-  <div>
-    <div class="card" style="width: 12rem">
-      <img :src="img" class="card-img-top" alt="..." />
-      <span class="badge-jobs">{{ jobText }}</span>
-      <div class="card-body">
-        <div class="logo">
-          <img alt="logo" :src="logo" />
-        </div>
-        <h3 class="card-title underlined3">
-          <span>{{ name }}</span>
-        </h3>
-        <div class="card-text">
-          <p class="tagline">{{ tagline }}</p>
-          <span class="badge bg-primary color-grey">
+  <a class="card cardEnterprise" :href="link" target="_blank">
+    <img :src="img" class="card-img-top" alt="..." />
+    <span class="badge-jobs">{{ jobText }}</span>
+    <div class="card-body align-self-stretch">
+      <div class="logo">
+        <img alt="logo" :src="logo" />
+      </div>
+      <h3 class="card-title underlined3">
+        <span>{{ name }}</span>
+      </h3>
+      <div class="card-text">
+        <p class="tagline">{{ tagline }}</p>
+        <ul class="d-flex flex-wrap align-items-start w-100 ps-0">
+          <li class="badge bg-primary m-1">
             <client-only>
               <!-- TODO-ISSUE
                 Needed due to a duplication bug in font-awasome 
@@ -48,8 +48,8 @@ const jobText = computed(() => {
               <font-awesome-icon icon="fa-solid fa-tag" class="pe-1" />
             </client-only>
             <span>{{ sector }}</span>
-          </span>
-          <span class="badge bg-primary color-grey">
+          </li>
+          <li class="badge bg-primary m-1">
             <client-only>
               <!-- TODO-ISSUE
                 Needed due to a duplication bug in font-awasome 
@@ -61,8 +61,8 @@ const jobText = computed(() => {
               />
             </client-only>
             <span>{{ localisation }}</span>
-          </span>
-          <span class="badge bg-primary color-grey">
+          </li>
+          <li class="badge bg-primary m-1">
             <client-only>
               <!-- TODO-ISSUE
                 Needed due to a duplication bug in font-awasome 
@@ -71,43 +71,61 @@ const jobText = computed(() => {
               <font-awesome-icon icon="fa-solid fa-users" class="pe-1" />
             </client-only>
             <span>{{ size }}</span>
-          </span>
-          <p>{{ text }}</p>
-        </div>
+          </li>
+        </ul>
+        <p>{{ text }}</p>
       </div>
     </div>
-  </div>
+  </a>
 </template>
 
-<style>
-.badge-jobs {
-  background-color: #fff;
-  border-radius: 50px;
-  font-size: 14px;
-  font-weight: 800;
-  padding: 7px 12px;
-  position: absolute;
-  right: 12px;
-  top: 12px;
-}
+<style scoped lang="scss">
+@import '~/assets/scss/main.scss';
+.cardEnterprise {
+  height: 100%;
+  border-radius: 12px;
+  color: $secondary;
+  text-decoration: none;
+  box-shadow: 0 0 20px -5px rgba(52, 63, 82, 0.5);
+  transition: all 0.2s ease-in 0s;
+  &:hover {
+    color: $secondary;
+    text-decoration: none;
+    box-shadow: 0 0 20px 0px rgba(52, 63, 82, 0.5);
+  }
+  .card-title {
+    font-weight: bolder;
+  }
 
-.tagline {
-  display: inline-block;
-  max-width: 150px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-.badge {
-  display: inline-block;
-  max-width: 150px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
+  .badge-jobs {
+    background-color: #fff;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 7px 12px;
+    position: absolute;
+    right: 12px;
+    top: 12px;
+  }
 
-.color-grey {
-  color: #5c6574;
+  .tagline {
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: bold;
+    width: 100%;
+  }
+  .badge {
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    opacity: 0.8;
+    color: $secondary;
+    max-width: 80%;
+    min-width: 20px;
+  }
 }
 
 .underlined3 > span,

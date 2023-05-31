@@ -184,7 +184,11 @@
 }
 
 .logo {
-  width: 120px;
+  width: 180px;
+
+  @include media-breakpoint-down(lg) {
+    width: 120px;
+  }
 
   .st1 {
     fill: #77e9cb;

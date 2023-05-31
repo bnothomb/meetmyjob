@@ -51,7 +51,7 @@ onMounted(() => {
         <div
           class="row justify-content-center justify-content-xl-start align-items-center my-5 mx-3"
         >
-          <div class="col-8 col-lg-10 col-xl-8">
+          <div class="col-lg-10 col-xl-8 col-xxl-7">
             <h2 class="text-mmj">
               Deviens acteur du changement
               <span class="underlined">
@@ -80,7 +80,7 @@ onMounted(() => {
           </a>
           <a
             href="/entreprises-impact"
-            class="col-8 col-xl-3 btn btn-primary btnHero btnHero--white m-2"
+            class="col-8 col-8 col-xl-3 btn btn-primary btnHero btnHero--white m-2"
             >Trouve ton entreprise engagée
           </a>
         </div>
@@ -139,6 +139,10 @@ onMounted(() => {
     }
     @media screen and (max-width: 788.98px) {
       font-size: 50px;
+    }
+
+    @media screen and (max-width: 500px) {
+      font-size: 45px;
     }
   }
 
